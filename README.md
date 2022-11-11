@@ -30,7 +30,7 @@ Thirdly, from screen shots we can tell our contracts got deployed withour any er
 ![Final](https://user-images.githubusercontent.com/69637182/201229532-66dbadc5-0ea3-43c4-ac83-254039b1cd76.png)
 
 # Conclusion
-##Mission from Earth to Mars 
+Mission from Earth to Mars 
 
 ![th_1](https://user-images.githubusercontent.com/69637182/201230236-ef7147ff-6bde-4da2-8183-7cf62b2163ba.png)
 
