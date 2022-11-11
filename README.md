@@ -5,9 +5,9 @@ implementing the new system on blockchain technology, define a new cryptocurrenc
 
 # The Goal:
 launch a crowdsale for people moving to Mars
-Coverting their earthing money to KaseiCoin.
+Converting their earthing money to KaseiCoin.
 
-Kai coin is a fungible tokens as the dollar has the same value no matter where you go runs on ERC20 Ethereum network
+Kai coin is a fungible tokens as the dollar has the same value no matter where you go especially if you planning to go to Mars runs on ERC20 Ethereum network
 
 # CrowdSale Contract:
 
@@ -27,6 +27,7 @@ This part is the most chanllenging one because it splits in two contract, the pl
 ![Screenshot 2022-11-10 170037](https://user-images.githubusercontent.com/69637182/201228590-6bc8fb4f-cd91-42e3-bc5f-9b67859c914a.png)
 
 Thirdly, from screen shots we can tell our contracts got deployed withour any errors
+
 ![Final](https://user-images.githubusercontent.com/69637182/201229532-66dbadc5-0ea3-43c4-ac83-254039b1cd76.png)
 
 # Conclusion
