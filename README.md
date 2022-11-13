@@ -1,4 +1,4 @@
-# Colonize_Mars_With_KaseiCoin
+# Colonize_Mars_With_kAI
 
 As ay Fintech developer, developing a new monetery system for new colony.
 implementing the new system on blockchain technology, define a new cryptocurrency, named KaseiCoin. 
@@ -11,7 +11,7 @@ Kai coin is a fungible tokens as the dollar has the same value no matter where y
 
 # CrowdSale Contract:
 
-user send their Ether to receive KAi, Contract Automatically mint tokens and disttribute them to buyers in one transaction.
+users send their Ether to receive KAi, Contract Automatically mint tokens and disttribute them to buyers in one transaction.
 
 # Implementation By Using JS VM
 First,By Creating the first Contract KaseiCoin.sol and by importing OpenZeppelin library  make our job easier by only call the constructor()
