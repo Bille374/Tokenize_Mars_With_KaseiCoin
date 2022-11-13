@@ -1,4 +1,4 @@
-# Colonize_Mars_With_kAI
+# Colonize_Mars_With_KAI
 
 As ay Fintech developer, developing a new monetery system for new colony.
 implementing the new system on blockchain technology, define a new cryptocurrency, named KaseiCoin. 
