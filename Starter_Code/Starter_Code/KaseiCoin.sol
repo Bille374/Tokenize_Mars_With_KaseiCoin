@@ -1,28 +1,65 @@
-//SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.5.0;
 
-//  Import the following contracts from the OpenZeppelin library:
-//    * `ERC20`
-//    * `ERC20Detailed`
-//    * `ERC20Mintable`
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Detailed.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Mintable.sol";
-
-// Create a constructor for the KaseiCoin contract and have the contract inherit the libraries that you imported from OpenZeppelin.
-
-contract KaseiCoin is ERC20, ERC20Detailed, ERC20Mintable{
+import "./KaseiCoin.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/emission/MintedCrowdsale.sol";
 
 
-    //string public symbol = "KAI";
+// Have the KaseiCoinCrowdsale contract inherit the following OpenZeppelin:
+// * Crowdsale
+// * MintedCrowdsale
+contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale { // UPDATE THE CONTRACT SIGNATURE TO ADD INHERITANCE
     
+    // Provide parameters for all of the features of your crowdsale, such as the `rate`, `wallet` for fundraising, and `token`.
+    constructor(
+        
+        uint rate,
+        address payable wallet,
+        KaseiCoin token
+
+    )Crowdsale(rate, wallet, token) public {
+        // constructor can stay empty
+    }
+}
 
 
-    constructor (
+contract KaseiCoinCrowdsaleDeployer {
+    // Create an `address public` variable called `kasei_token_address`.
+    address public kasei_token_address;
 
-        string memory name,
-        string memory symbol,
-        uint initial_suppy)ERC20Detailed(
-        name,
-        symbol,
-        18) public{}
+    // Create an `address public` variable called `kasei_crowdsale_address`.
+    address public kasei_crowdsale_address;
+
+    // Add the constructor.
+    constructor(
+       string memory name,
+       string memory symbol,
+       address payable wallet
+    ) public {
+        // Create a new instance of the KaseiCoin contract.
+        KaseiCoin token = new KaseiCoin(name,symbol,0);        
+        
+        // Assign the token contract’s address to the `kasei_token_address` variable.
+       kasei_token_address = address(token);
+
+        // Create a new instance of the `KaseiCoinCrowdsale` contract
+        KaseiCoinCrowdsale tokensale  = new KaseiCoinCrowdsale(1, wallet, token);
+
+            
+        // Aassign the `KaseiCoinCrowdsale` contract’s address to the `kasei_crowdsale_address` variable.
+        kasei_crowdsale_address  = address (tokensale);
+
+        // Set the `KaseiCoinCrowdsale` contract as a minter
+        token.addMinter(kasei_crowdsale_address);
+        
+        // Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
+        token.renounceMinter();
+    }
+}
+        
+
+        
+
+
+
+    
